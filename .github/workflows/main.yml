@@ -19,9 +19,9 @@ jobs:
         run: |
           sudo apt-get install aria2
       - name: Download File
-        run: echo 'Hello World!' > test.txt
+        run: aria2c -o {{inputs.filename}} {{inputs.url}}
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: test
-          files: test1.txt
+          files: "{{inputs.filename}}"
