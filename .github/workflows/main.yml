@@ -1,0 +1,14 @@
+name: test-upload-file
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test File
+        run: echo 'Hello World!' > test.txt
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: test.txt
