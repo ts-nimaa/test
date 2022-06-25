@@ -1,13 +1,25 @@
 name: test-upload-file
 
-on: workflow_dispatch
-
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Download assess URL."
+        required: true
+        type: string
+      filename:
+        description: "Download assess filename."
+        required: true
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Test File
-        run: echo 'Hello World!' > test1.txt
+      - name: Install Download Software
+        run: |
+          sudo apt-get install aria2
+      - name: Download File
+        run: echo 'Hello World!' > test.txt
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
