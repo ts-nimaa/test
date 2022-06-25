@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test File
-        run: echo 'Hello World!' > test.txt
+        run: echo 'Hello World!' > test1.txt
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: test
-          files: test.txt
+          files: test1.txt
